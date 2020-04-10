@@ -1,0 +1,21 @@
+-
+  name: copy file to target servers
+  hosts: ansible-servers , ansible2-servers #all
+  vars:
+    hello: [Asia, Americas, Artic, Antartic ,Oceania,Europe,Africa]
+    ramsize: 8
+    python:
+      Designer: 'Guido van Rosum'
+      Developer: 'Python Software Foundation'
+      OS: 'Cross-platform'
+  tasks:
+     - name: Ansible grep pattern with ignore_errors example
+       shell: "grep -ir 'pattern' *.txt"
+       args:
+          chdir: "/tmp"
+       register: grep_output
+       ignore_errors: true
+     - debug:
+          var: grep_output.stdout_lines
+          masg: (ramsize * 3.6) | int
+       when: grep_output.stdout != "

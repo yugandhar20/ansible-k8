@@ -1,0 +1,4 @@
+target1-ansible ansible_host=162.1.1.4 ansible_user=root ansible_ssh_pass=horton
+
+[ansible-servers]
+target1-ansible

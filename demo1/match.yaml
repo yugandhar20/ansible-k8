@@ -1,0 +1,16 @@
+- hosts: all
+  tasks:
+  - name: Ansible find files in subdirectory examples
+    find:
+      paths: /home/mdtutorials2/findmodule/examples
+      patterns: "*.txt"
+      recurse: yes
+      register: files_matched_subdirectory
+
+  - debug:
+      msg: "{{ files_matched_subdirectory.files }}"
+  - name: Ansible find files multiple patterns examples
+    find:
+      paths: /home/mdtutorials2/findmodule/examples
+      patterns: "*.txt,*.log"
+      recurse: yes

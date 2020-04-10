@@ -1,0 +1,19 @@
+- hosts: all
+  tasks:
+  - name: Ansible register variable basic example
+    shell: "find *.txt"
+    args:
+      chdir: "/Users/mdtutorials2/Documents/Ansible"
+    register: find_output
+
+  - debug:
+      var: find_output
+  - name: Ansible register with_items example
+    shell: "find *.txt"
+    args:
+      chdir: "/Users/mdtutorials2/Documents/Ansible"
+    register: with_output
+
+  - shell: "cp {{ item }} {{item}}_bkp"
+    with_items:
+      - "{{ with_output.stdout_lines }}"

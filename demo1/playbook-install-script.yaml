@@ -1,0 +1,21 @@
+-
+  name: copy file to target servers
+  hosts: ansible-servers , ansible2-servers #all
+  vars:
+    hello: [Asia, Americas, Artic, Antartic ,Oceania,Europe,Africa]
+    python:
+      Designer: 'Guido van Rosum'
+      Developer: 'Python Software Foundation'
+      OS: 'Cross-platform'
+  tasks:
+    - name: copy file
+      script: /tmp/run.sh
+
+    - name: Ansible array variables example
+      debug:
+        msg: "{{ item }}"
+      with_items:
+       - "{{ hello }}"
+    - name: Ansible Dictionary Example
+      debug:
+      msg: "{{ python }}"

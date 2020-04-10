@@ -1,0 +1,25 @@
+- hosts: all
+  vars:
+    test1: 8
+    test2: 6
+  tasks:
+  - debug:
+      msg: "This is the expected system"
+    when: ansible_distribution == "Ubuntu" and ansible_distribution_version == "16.04"
+  - stat:
+      path: /home/mdtutorials2/sample_file.txt
+    register: result
+
+  - debug:
+      msg: "Ansible When File Exists Example."
+    when: result.stat.exists
+
+
+  - debug:
+      msg: "Ansible when or example"
+      when: test2%2==0 and test2%3==0
+
+
+  - debug:
+      msg: "Ansible when or example"
+    when: test1==5 or test1==6

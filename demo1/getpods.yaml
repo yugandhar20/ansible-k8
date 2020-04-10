@@ -1,0 +1,12 @@
+- hosts: all
+  tasks:
+    #- name: Insert a line at the end of a file.
+    #  shell: kubectl get pods -o wide >/tmp/getnodes.txt
+    - name: display multiple file contents
+      debug: var=item
+      with_file:
+        - "/tmp/getnodes.txt"
+        #- "bar.txt"  # will be looked in files/ dir relative to play or in role
+        #- "/path/to/biz.txt"
+
+      #executable: /bin/bash

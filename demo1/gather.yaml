@@ -1,0 +1,6 @@
+- hosts: all
+  gather_facts: True
+  gather_subset: min
+  module_defaults:
+    eos_facts:
+      gather_network_resources: interfaces

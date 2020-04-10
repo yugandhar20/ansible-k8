@@ -1,0 +1,11 @@
+- hosts: all
+  gather_facts: False
+  vars_prompt:
+    - name: "Version"
+      prompt: "Which version Do you want to install?"
+      default: "3.0"
+
+  tasks:
+    - name: Ansible prompt example.
+      debug:
+        msg: "{{ Version }}"

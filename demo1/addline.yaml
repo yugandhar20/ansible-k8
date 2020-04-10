@@ -1,0 +1,6 @@
+- hosts: all
+  tasks:
+    - name: Insert a line at the end of a file.
+      lineinfile:
+        path: /tmp/temp1.txt
+        line: last

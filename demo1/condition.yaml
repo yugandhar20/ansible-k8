@@ -1,0 +1,19 @@
+- hosts: all
+  vars:
+    test1: "Bye World"
+  tasks:
+- name: Ansible when variable contains string example example
+  debug:
+      msg: "Equals"
+  when: test1.find("World") != -1
+
+- shell: cat /etc/temp.txt
+  register: output
+- name: Ansible when variable is empty example
+  debug:
+      msg: "empty"
+  when: output.stdout == ""
+- name: Ansible when variable contains string example example
+  debug:
+    msg: "Equals"
+  when: output.stdout.find("World") != -1

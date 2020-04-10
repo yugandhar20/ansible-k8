@@ -1,0 +1,11 @@
+-
+  name: copy file to target servers
+  hosts: ansible-servers #all
+  tasks:
+    - name: copy file
+      copy:
+         src: /tmp/temp1.txt
+         dest: /tmp/temp1.txt
+         mode: u+rw,g-wx,o-rwx
+         backup: yes
+      task:

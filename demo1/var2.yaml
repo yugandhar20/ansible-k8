@@ -1,0 +1,9 @@
+- hosts: all
+  vars:
+    test1: "Bye World"
+  tasks:
+  - name: Ansible when variable contains string example example
+    debug:
+      msg: "Equals"
+    when: test1.find("fffffffff") != -1
+    msg2: "dsdsdd"
